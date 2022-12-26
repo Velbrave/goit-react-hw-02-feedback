@@ -1,0 +1,16 @@
+.wrapper {
+  display: flex;
+  column-gap: 15px;
+  justify-content: center;
+  list-style: none;
+}
+
+.feedbackBtn {
+  width: 75px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  cursor: pointer;
+  border-radius: 4px;
+  color: white;
+  background-color: royalblue;
+}
