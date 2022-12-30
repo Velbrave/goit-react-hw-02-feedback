@@ -6,27 +6,27 @@ import Notification from 'components/Notification/Notification';
 
 class App extends React.Component {
   state = {
-    Good: 0,
-    Neutral: 0,
-    Bad: 0,
+    good: 0,
+    neutral: 0,
+    bad: 0,
   };
 
-  handleClick = event => {
-    const options = event.target.name;
+  handleClick = option => {
     this.setState(prevState => {
       return {
-        [options]: prevState[options] + 1,
+        [option]: prevState[option] + 1,
       };
     });
   };
 
   countTotalFeedback = () => {
-    return this.state.Good + this.state.Neutral + this.state.Bad;
+    const { good, neutral, bad } = this.state;
+    return good + neutral + bad;
   };
 
   countPositiveFeedbackPercentage = () => {
     const totalFeedback = this.countTotalFeedback();
-    const goodFeedback = this.state.Good;
+    const goodFeedback = this.state.good;
     let result = 0;
 
     if (totalFeedback > 0) {
@@ -53,9 +53,9 @@ class App extends React.Component {
         <Section title="Statistics">
           {countTotalFeedback > 0 ? (
             <Statistics
-              isGood={this.state.Good}
-              isNeutral={this.state.Neutral}
-              isBad={this.state.Bad}
+              isGood={this.state.good}
+              isNeutral={this.state.neutral}
+              isBad={this.state.bad}
               total={countTotalFeedback}
               positivePercentage={countPositiveFeedbackPercentage}
             />
